@@ -1,0 +1,16 @@
+@import '../../../style/style';
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    padding: rem(30);
+}
+
+.pagination_item {
+    width: rem(35);
+    height: rem(35);
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    
+}

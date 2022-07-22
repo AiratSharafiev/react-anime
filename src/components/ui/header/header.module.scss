@@ -1,0 +1,29 @@
+@import '../../../style/style';
+
+.header {
+    padding: rem(15) 0;
+    background-color: $mainDarkGrayColor;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    @include adaptiveValue("gap", 50, 15);
+}
+
+.menu__link {
+    text-decoration: none;
+    color: $mainWhiteColor;
+    line-height: 150%;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 rem(15);
+}
+
+.home {
+    font-size: rem(22);
+}

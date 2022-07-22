@@ -1,0 +1,10 @@
+@import '../../../style/style';
+
+.content {
+    background-color: $mainDarkGrayColor;
+}
+
+.text {
+    padding: rem(15) 0;
+    color: $mainWhiteColor;
+}

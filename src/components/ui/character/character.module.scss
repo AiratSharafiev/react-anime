@@ -1,0 +1,19 @@
+@import '../../../style/style';
+
+.title {
+    text-align: center;
+    line-height: 150%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.img {
+    object-fit: cover;
+    width: rem(200);
+    height: rem(240);
+}
+
+.content {
+    max-width: rem(200);
+}

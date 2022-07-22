@@ -1,0 +1,16 @@
+@import '../../style/style';
+
+.wrapper {
+    min-height: 100%;
+	display: grid;
+	overflow: hidden;
+	grid-template-rows: auto 1fr auto;
+}
+
+.main_block {
+    display: flex;
+    justify-content: start;
+    align-items: start;    
+    @include adaptiveValue("width", 1170, 290);
+}
+

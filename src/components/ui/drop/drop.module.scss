@@ -1,0 +1,11 @@
+@import '../../../style/style';
+
+.content {
+    padding: rem(15);
+    display: flex;
+    gap: rem(10);
+    text-decoration: none;
+}
+.text {
+    color: $mainColor;
+}

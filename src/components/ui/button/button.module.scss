@@ -1,0 +1,14 @@
+@import '../../../style/style';
+
+.button {
+    border: 1px solid #000;
+    text-align: center;
+    padding: rem(5) rem(10);
+    cursor: pointer;
+}
+
+.button_content {
+    display: grid;
+    place-items: center;
+    padding: rem(10);
+}

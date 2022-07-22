@@ -1,0 +1,85 @@
+@import '../../../style/style';
+
+.conteiner {
+    display: flex;
+    @include adaptiveValue("gap", 30, 15);
+    @media (max-width: $mobile) {
+		flex-wrap: wrap;
+	}   
+}
+
+.item__main {
+    width: 100%;
+}
+
+.content {
+    background-color: #fff;
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+    @media (min-width: $tablet) {
+		flex: 0 0 75%;
+        max-width: 75%;
+	}   
+}
+
+.img {
+    width: rem(250);
+    height: rem(350);
+}
+
+.title {
+    padding: 0 rem(15);
+    line-height: 150%;
+    @include adaptiveValue("font-size", 30, 20);
+    font-weight: 800;
+    margin-bottom: rem(10);
+    @include adaptiveValue("margin-bottom", 30, 15);
+    @include adaptiveValue("margin-top", 30, 15);
+    background-color: $mainLightBluColor;
+}
+
+.titleMain {
+    padding: 0 rem(15);
+    line-height: 150%;
+    border-bottom: 1px solid #ccc;
+    @include adaptiveValue("font-size", 30, 20);
+    font-weight: 800;
+    margin-bottom: rem(10);
+    @include adaptiveValue("margin-bottom", 30, 15);
+    @include adaptiveValue("margin-top", 30, 15);
+}
+
+.description {
+    line-height: 150%;
+}
+
+.property {
+    line-height: 150%;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    gap: rem(10);
+}
+
+.category {
+    display: flex;
+    gap: rem(10);
+    flex-wrap: wrap;
+    white-space: nowrap;
+}
+
+.character {
+    display: flex;
+    flex-wrap: wrap;
+    gap: rem(10);
+    justify-content: flex-start;
+    align-items: center;
+    padding: rem(15) 0;
+}
+
+.text {
+    color: rgb(123, 128, 132);
+}

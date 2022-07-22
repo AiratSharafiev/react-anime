@@ -1,0 +1,10 @@
+@import '../../../style/style';
+
+.text {
+    text-decoration: none;
+    color: $mainBlueColor;
+}
+
+.text:active {
+    text-decoration: underline;
+}

@@ -1,0 +1,177 @@
+@use "sass:math";
+
+// Подключение миксинов ===========================================================================================================================================================================================================================================================================
+@import "base/mixins";
+
+//&display=swap - добавить при подключении через плагин
+@import url("https://fonts.googleapis.com/css?family=Montserrat:500,600,700&display=swap");
+
+$fontFamily: "Montserrat";
+$fontSize: rem(16); // где 14(px) - размер шрифта по умолчанию из макета
+
+// Основные цвета
+$mainColor: #222222; // Цвет шрифта по умолчанию
+$mainGrayColor: #e6e6e6;
+$mainDarkGrayColor: #343434;
+$mainWhiteColor: #fff;
+$mainLightBluColor: #e8ebef;
+$mainBlueColor: #176093;
+$mainPinkColor: #f16d7f;
+
+// Минимальная ширина страницы
+$minWidth: 320;
+// Ширина полотна (макета)
+$maxWidth: 1920;
+// Ширина ограничивающего контейнера (0 = нет ограничения)
+$maxWidthContainer: 1170;
+// Общий отступ у контейнера
+// (30 = по 15px слева и справа, 0 = нет отступа)
+$containerPadding: 30;
+
+// Тип адаптива:
+// 1 = отзывчивость (у контейнера нет брейкпоинтов),
+// 2 = по брейк-поинтам (контейнер меняет свою ширину по брейк-поинтам)
+$responsiveType: 1;
+
+// Ширина страбатывания первого брейкпоинта
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+// Брейк-поинты
+$pc: em($containerWidth); // ПК, ноутбуки, некоторые планшеты в горизонтальном положении
+$tablet: em(991.98); // Планшеты, некоторые телефоны в горизонтальном положении
+$mobile: em(767.98); // Телефоны L
+$mobileSmall: em(479.98); // Телефоны S
+
+@import "base/null";
+
+[class*="-ibg"] {
+	position: relative;
+	img {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0;
+		left: 0;
+		object-fit: cover;
+	}
+}
+[class*="-ibg_contain"] {
+	img {
+		object-fit: contain;
+	}
+}
+
+
+body {
+	font-weight: 500;
+	// Скролл заблокирован
+	.lock & {
+		overflow: hidden;
+		touch-action: none;
+	}
+}
+
+.wrapper {
+	min-height: 100%;
+	display: flex;
+	flex-direction: column;
+	overflow: hidden;
+	// Сайт загружен
+	.loaded & {
+	}
+	// Прижимаем footer
+	> main {
+		flex: 1 1 auto;
+	}
+	// Фикс для слайдеров
+	> * {
+		min-width: 0;
+	}
+}
+
+@if ($responsiveType==1) {
+	// Отзывчивая
+	[class*="__container"] {
+		@if ($maxWidthContainer>0) {
+			max-width: rem($maxWidthContainer);
+			box-sizing: content-box;
+			margin: 0 auto;
+		}
+		@if ($containerPadding>0) {
+			padding: 0 rem(math.div($containerPadding, 2));
+		}
+	}
+} @else {
+	// По брейк-поинтам
+	[class*="__container"] {
+		margin: 0 auto;
+		@if ($maxWidthContainer>0) {
+			max-width: rem($maxWidthContainer);
+			box-sizing: content-box;
+		} @else {
+			@if ($containerPadding>0) {
+				padding: 0 rem(math.div($containerPadding, 2));
+			}
+		}
+		@media (max-width: $pc) {
+			max-width: rem(970);
+		}
+		@media (max-width: $tablet) {
+			max-width: rem(750);
+		}
+		@media (max-width: $mobile) {
+			max-width: none;
+			@if ($containerPadding>0 and $maxWidthContainer>0) {
+				padding: 0 rem(math.div($containerPadding, 2));
+			}
+		}
+	}
+}
+
+//burger
+.icon-menu {
+	display: none;
+	@media (max-width: $tablet) {
+		display: block;
+		position: relative;
+		width: 30px;
+		height: 18px;
+		cursor: pointer;
+		z-index: 5;
+		span,
+		&::before,
+		&::after {
+			content: "";
+			transition: all 0.3s ease 0s;
+			left: 0px;
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			background-color: #fff;
+		}
+		&::before {
+			top: 0px;
+		}
+		&::after {
+			bottom: 0px;
+		}
+		span {
+			top: calc(50% - 1px);
+		}
+		
+	}
+}
+
+.menu-open {
+	span {
+		transform: scale(0);
+	}
+	&::before {
+		transform: rotate(-45deg);
+		top: calc(50% - 1px);
+	}
+	&::after {
+		transform: rotate(45deg);
+		bottom: calc(50% - 1px);
+	}
+}

@@ -1,0 +1,31 @@
+@import '../../../style/style';
+
+.pagination_item {
+    @include adaptiveValue("width", 35, 28);
+    @include adaptiveValue("height", 35, 28);
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;    
+}
+
+.pagination_item_active {
+    border: 1px solid $mainDarkGrayColor;
+    @include adaptiveValue("width", 35, 28);
+    @include adaptiveValue("height", 35, 28);
+    color: $mainWhiteColor;
+    background-color: $mainDarkGrayColor;
+    text-align: center;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    @include adaptiveValue("gap", 25, 8);
+    @include adaptiveValue("padding", 30, 10);
+    align-items: baseline;
+}
