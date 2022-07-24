@@ -54,7 +54,7 @@ const Category = ({ genre, menuOpen, toggleClass, closeIconMenu }) => {
                 {year.map((item, index) => {
                     return <li
                         key={index}
-                    ><NavLink to={`${genre}/${item.adress}`} className={link} style={setActive}>{item.years}</NavLink></li>
+                    ><NavLink to={`${genre}/${item.adress}`} className={link} style={setActive} onClick={closeMenu}>{item.years}</NavLink></li>
                 })}
             </ul>
         </div>
