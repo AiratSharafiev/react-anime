@@ -15,7 +15,7 @@ const SearchList = ({getSaerchRes, limitItem}) => {
             .then( (itemList) => (
                 setSearchList({...itemList.data})            
             ))
-    }, [currentPage, title]);
+    }, [currentPage, getSaerchRes, title]);
 
     if(!searchList) {
         return <Spinner/>

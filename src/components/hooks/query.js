@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 
 const useQuery = (getData, currentPage, limitItem, genre = null, valueInput = false, category = null, year = null) => {
@@ -6,7 +6,7 @@ const useQuery = (getData, currentPage, limitItem, genre = null, valueInput = fa
     const [itemList, setItemList] = useState(null);
     const [searchParams] = useSearchParams();
 
-    const categoryItem = (getData) => {
+    const categoryItem = useCallback((getData) => {
         const searchQuerym = searchParams.get('search') || '';
         if (valueInput) {
             getData(currentPage, limitItem, genre, valueInput)
@@ -19,7 +19,7 @@ const useQuery = (getData, currentPage, limitItem, genre = null, valueInput = fa
                     setItemList({ ...itemList.data })
                 ))
         }
-    };
+    }, [category, currentPage, genre, limitItem, searchParams, valueInput])
 
     useMemo(() => {
         if (Array.isArray(getData)) {

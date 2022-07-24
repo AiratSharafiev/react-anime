@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import useQuery from '../../hooks/query';
 import ItemBlock from '../../ui/itemBlock/itemBlock';
 import NotFound from '../notFound/notFound';
@@ -8,8 +8,9 @@ import {genr, limitItem} from '../../data/data';
 const ListItem = ({getData, currentPage, setPage}) => {
 
     const {genre} = useParams();  
+    const {state} = useLocation();
     
-    const itemList = useQuery(getData.getData, currentPage, limitItem, genre);
+    const itemList = useQuery(getData.getData, currentPage, limitItem, genre, state);
 
     if (!genr.includes(genre)) {
         return <NotFound/>

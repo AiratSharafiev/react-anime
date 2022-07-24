@@ -10,7 +10,7 @@ const Character = ({getAni, character}) => {
             .then((res) => {
                 setCharacters({...res})
         });
-    }, [character]);
+    }, [character, getAni]);
 
     if(characters) {
         const data = characters.data.data

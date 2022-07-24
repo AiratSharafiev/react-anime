@@ -13,7 +13,7 @@ const CategoryGenre = ({getAni, link}) => {
             .then((res) => {
                 setCategories({...res})
         });
-    }, [link]);
+    }, [getAni, link]);
 
     if(!categories) {
         return (

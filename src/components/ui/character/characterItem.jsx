@@ -9,7 +9,7 @@ const CharacterItem = ({getAni, url}) => {
             .then((res) => {
                 setCharactersItem({...res})
         });
-    }, [url]);
+    }, [getAni, url]);
 
     if (!charactersItem) {
         return <></>
@@ -17,8 +17,7 @@ const CharacterItem = ({getAni, url}) => {
     
     const data = charactersItem.data.data,
         name = data.attributes.canonicalName,
-        img = data.attributes.image.original,
-        id = data.id;
+        img = data.attributes.image.original;
         
     return (
         <div className={classes.content}>

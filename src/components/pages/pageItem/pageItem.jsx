@@ -1,5 +1,5 @@
-import React, { useMemo, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useMemo, useState } from 'react';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import NotFound from '../notFound/notFound';
 import CategoryGenre from '../../ui/categoryGenre/categoryGenre';
 import Character from '../../ui/character/character';
@@ -7,15 +7,30 @@ import Spinner from '../../ui/spinner/spinner';
 import classes from './pageItem.module.scss';
 
 const PageItem = ({ getAni }) => {
+    const [res, setRes] = useState(null);
+
     const getById = getAni.getById;
     const { type, id } = useParams();
+    const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+
+    useEffect(() => {
+        const searchQuerym = searchParams.get('search') || '';
+        if(searchQuerym) {
+            navigate(`/${type}`, {state: searchQuerym})
+        }
+    }, [navigate, searchParams, type])
+
+    useMemo(() => {
+        getById(type, id)
+            .then((res) => {
+                setRes({ ...res })
+            });
+    }, [getById, id, type]);
 
     if (!Number.isInteger(+id)) {
         return <NotFound />
     }
-
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [res, setRes] = useState(null);
 
     const months = ["января", "февраля", "марта", "апреля", "мая", "июня", "июля", "августа", "сентября", "октября", "ноября", "декабря"];
 
@@ -27,13 +42,6 @@ const PageItem = ({ getAni }) => {
         const monthsNum = --arr[1]
         return `${arr[2]} ${months[monthsNum]} ${arr[0]}г.`
     }
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useMemo(() => {
-        getById(type, id)
-            .then((res) => {
-                setRes({ ...res })
-            });
-    }, [id]);
 
     if (!res) {
         return <Spinner />
@@ -62,7 +70,7 @@ const PageItem = ({ getAni }) => {
     const dateEnd = addMonth(endDate);
 
     const releaseDate = (episodeCount, dateStart, dateEnd) => {
-        if (!episodeCount || episodeCount > 1 && !dateEnd) {
+        if ((!episodeCount || episodeCount > 1) && !dateEnd) {
             return (
                 <div><span className={classes.text}>Выпуск: </span>с {dateStart}</div>)
 

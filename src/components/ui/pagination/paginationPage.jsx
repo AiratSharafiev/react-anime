@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import classes from './paginationPage.module.scss';
 import { limitItem } from '../../data/data';
@@ -10,10 +10,10 @@ const Pages = ({ page, openPage, allCount, maxNumberPage }) => {
     const maxCount = limitItem * (maxPage - 1);
     const [count, setCount] = useState([]);
 
-    const pageArr = () => {
-        let arr = [];
+    const pageArr = useCallback(() => {
+        const arr = [];
 
-        let createCount = (n, m) => {
+        const createCount = (n, m) => {
             while (n <= m) {
                 arr.push(n++);
             }
@@ -24,14 +24,14 @@ const Pages = ({ page, openPage, allCount, maxNumberPage }) => {
         } else {
             createCount(1, maxNumberPage);
         };
-
+        
         setCount([...arr]);
-    }
+    }, [allCount, maxCount, maxNumberPage, page])
 
-    const increasePage = () => {
+    const increasePage = useCallback(() => {
         let arr = count.map(item => ++item);
         setCount([...arr])
-    };
+    }, [count])
 
     useEffect(() => {
         pageArr()
@@ -43,7 +43,7 @@ const Pages = ({ page, openPage, allCount, maxNumberPage }) => {
         } else if (count[maxPage - 1] < page) {
             increasePage()
         }
-    }, [page, pathname]);
+    }, [count, increasePage, page, pageArr, pathname]);
 
     const activePage = (e) => {
         const target = e.currentTarget.id;
@@ -57,7 +57,7 @@ const Pages = ({ page, openPage, allCount, maxNumberPage }) => {
     };
 
     return count.map(item => {
-        if (item == page) {
+        if (item === page) {
             return (
                 <span
                     key={item}
