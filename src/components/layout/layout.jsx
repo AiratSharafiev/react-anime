@@ -34,14 +34,16 @@ const Layout = ({changeGenre, getData, genre}) => {
     };
 
     return (
-        <div className={classes.wrapper}>
+        <div className="wrapper">
             <Header changeGenre={changeGenre} iconMenu={iconMenu} classNameMenu={classNameMenu}/>
-            <main className='__container'>
-                <SearchPanel getData={getData}/>
-                <section className={classes.main_block}>
-                    <Outlet />
-                    <Category genre={genre} menuOpen={menuOpen} toggleClass={toggleClass} closeIconMenu={closeIconMenu}/>
-                </section>
+            <main className='main'>
+                <div className='__container'>
+                    <SearchPanel getData={getData}/>
+                    <section className={classes.main_block}>
+                        <Outlet />
+                        <Category genre={genre} menuOpen={menuOpen} toggleClass={toggleClass} closeIconMenu={closeIconMenu}/>
+                    </section>
+                </div>
             </main>
             <Footer/>
         </div>

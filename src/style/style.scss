@@ -64,6 +64,7 @@ $mobileSmall: em(479.98); // Телефоны S
 
 body {
 	font-weight: 500;
+	height: 100%;
 	// Скролл заблокирован
 	.lock & {
 		overflow: hidden;
