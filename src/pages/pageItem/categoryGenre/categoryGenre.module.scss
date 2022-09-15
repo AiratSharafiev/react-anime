@@ -1,0 +1,15 @@
+@import '../../../style/style';
+
+.text {
+    text-decoration: none;
+    color: $mainBlueColor;
+    transition: all 0.3s ease 0s;
+}
+
+.text:hover {
+    color: $mainColor;
+}
+
+.text:active {
+    text-decoration: underline;
+}

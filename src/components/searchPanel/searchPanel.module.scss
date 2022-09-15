@@ -1,0 +1,98 @@
+@import '../../style/style';
+
+.form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  width: 100%;
+  @media (max-width: $mobile) {
+    justify-content: end;
+	}
+}
+
+.search {
+  @include adaptiveValue("font-size", 20, 16);
+  padding: rem(10);
+  background-color: #333;
+  color: #fff;
+  outline: none;
+  flex-grow: 1;  
+} 
+
+.back {
+  font-size: rem(20);
+  cursor: pointer;
+  @media (min-width: $mobile) {
+    display: none;
+	}
+}
+
+.input_container {
+  flex-grow: 1;  
+  display: flex;
+  gap: rem(15);
+  align-items: center;
+  @media (max-width: $mobile) {
+    font-size: rem(20);
+    background-color: #333;
+    padding: rem(15);
+    color: #fff;
+    outline: none;
+    position: absolute;
+    z-index: 6;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    
+    &.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+	}
+}
+
+.input_container_open {
+  font-size: rem(20);
+  padding: rem(14) rem(15);
+  background-color: #333;
+  color: #fff;
+  outline: none;
+  position: absolute;
+  z-index: 6;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+}
+
+.input_button {
+  font-size: rem(20);
+  padding: rem(10);
+  border: none;
+  color: $mainWhiteColor;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  @media (max-width: $tablet) {
+    display: none;
+	}
+}
+.button {
+  font-size: rem(20);
+  padding: rem(10);
+  text-align: center;
+  border: none;
+  color: $mainWhiteColor;
+  text-decoration: none;
+  cursor: pointer;
+  @media (min-width: $tablet) {
+    display: none;
+	}
+}

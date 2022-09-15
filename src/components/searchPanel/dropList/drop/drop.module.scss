@@ -1,0 +1,13 @@
+@import '../../../../style/style';
+
+.content {
+    padding: rem(15);
+    display: flex;
+    gap: rem(10);
+    text-decoration: none;
+}
+.text {
+    color: $mainWhiteColor;
+    line-height: 150%;
+    padding-left: rem(10);
+}

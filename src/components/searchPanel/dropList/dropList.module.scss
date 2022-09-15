@@ -1,0 +1,32 @@
+@import '../../../style/style';
+
+.drop_list {
+    position: absolute;
+    background-color: $mainDarkGrayColor;
+    top: rem(47);
+    left: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    gap: rem(15);
+    width: rem(350);
+    box-shadow: 0 0 15px rgb(0 0 0 / 10%);
+    @media (max-width: $mobile) {
+      display: none;
+    }
+  }
+
+  .drop_content {
+    padding: rem(15);
+  }
+  .drop__text {
+    border-bottom: 1px solid $mainWhiteColor;
+    display: block;
+    line-height: 200%;
+    color: $mainWhiteColor;
+  }
+  
+.title {
+    padding-top: rem(10);
+    color: $mainWhiteColor;
+  }

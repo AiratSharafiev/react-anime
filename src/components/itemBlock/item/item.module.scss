@@ -1,0 +1,55 @@
+@import '../../../style/style';
+
+.item {
+    @include adaptiveValue("width", 230, 200);
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: $mainWhiteColor;
+    box-sizing: border-box;
+    transition: all 0.3s ease 0s;
+}
+
+.item:hover {
+    box-shadow: 0px rem(7) rem(30) rgba(0, 0, 0, 0.2);
+}
+
+.img {
+    width: 100%;
+}
+
+.item__img {
+    display: block;
+    line-height: 0;
+}
+
+.item__text {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.item__content {
+    padding: rem(10);
+}
+
+.item__title {
+    display: block;
+    line-height: 150%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    color: $mainBlueColor;
+    text-decoration: none;
+}
+
+.item__raiting {
+    display: flex;
+    align-items: center;
+    gap: rem(2);
+}
+
+.star {
+    color: $mainBlueColor;
+}

@@ -12,5 +12,7 @@
     justify-content: flex-start;
     align-items: flex-start;    
     @include adaptiveValue("width", 1170, 290);
+    @include adaptiveValue("padding-top", 70, 15);
+    @include adaptiveValue("padding-bottom", 70, 15);
 }
 

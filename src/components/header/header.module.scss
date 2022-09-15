@@ -1,0 +1,40 @@
+@import '../../style/style';
+
+.header {
+    padding: rem(15) 0;
+    background-color: $mainDarkGrayColor;
+}
+
+.menu {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    @include adaptiveValue("gap", 50, 10);
+}
+
+.logo {
+    text-decoration: none;
+    color: $mainWhiteColor;
+    line-height: 150%;
+}
+
+.menu__link {
+    text-decoration: none;
+    color: $mainWhiteColor;
+    line-height: 150%;
+    @media (max-width: $mobile) {
+        display: none;
+    }
+}
+.logo_white {
+    color: $mainBlueColor;
+}
+
+.content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    @include adaptiveValue("padding-left", 15, 10);
+    @include adaptiveValue("padding-right", 15, 10);
+    @include adaptiveValue("gap", 15, 10);
+}
