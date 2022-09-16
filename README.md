@@ -3,6 +3,7 @@
  
 # Стек технологий:
   * React + React Hooks
+  * React-router-dom
   * TypeScript
   * Redux Toolkit, RTK Query
   * Sass, CSS modules
