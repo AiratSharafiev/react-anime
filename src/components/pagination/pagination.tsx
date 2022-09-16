@@ -9,7 +9,7 @@ import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 interface IPagination {
     allCount: number
-}
+};
 
 const Pagination: FC<IPagination> = ({ allCount }) => {
 

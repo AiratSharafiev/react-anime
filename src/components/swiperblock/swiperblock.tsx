@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 import { IData } from '../../types/IData';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
-import { Autoplay, Pagination, EffectFade } from "swiper";
+import { Autoplay, EffectFade } from "swiper";
 import "swiper/css/pagination";
 import "swiper/css/effect-fade";
 import classes from './swiperblock.module.scss';
@@ -24,11 +24,7 @@ const SwiperBlock: FC<ISwiperBlock> = ({ data }) => {
                 delay: 5500,
                 disableOnInteraction: false,
             }}
-            pagination={{
-                dynamicBullets: true,
-                clickable: true,
-            }}
-            modules={[Autoplay, Pagination, EffectFade]}
+            modules={[Autoplay, EffectFade]}
             className="mySwiper"
         >
             {data?.data.map((item, index) => {
@@ -45,7 +41,7 @@ const SwiperBlock: FC<ISwiperBlock> = ({ data }) => {
                 return (
                     <SwiperSlide key={id} virtualIndex={index}>
                         <div className={classes.swiper_block}>
-                            <img src={coverImage} className={classes.img} />
+                            <img src={coverImage} className={classes.img} alt='img'/>
                             <div className={classes.swiper_container}>
                                 <div className={classes.content}>
                                     <h2 className={classes.title}>{title}</h2>

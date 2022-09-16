@@ -8,6 +8,7 @@ import classes from './homePage.module.scss';
 import Header from '../../components/header/header';
 import Footer from '../../components/footer/footer';
 import SwiperBlock from '../../components/swiperblock/swiperblock';
+import Category from '../../components/category/category';
 
 const HomePage: FC = () => {
     const popularThisWeek = getItem(dataApi.useGetPopularThisWeekQuery),
@@ -27,7 +28,7 @@ const HomePage: FC = () => {
                     <SwiperBlock data={mostEvaluated.data} />
                 </section>
                 <div className='__container'>
-                    <section className={classes.main_block}>
+                    <section className='main_block'>
                         <div className={classes.content}>
                             <div className={classes.block}>
                                 <h4 className={classes.title}>Популярное на этой недели</h4>
@@ -51,12 +52,13 @@ const HomePage: FC = () => {
                                 <Link to={`/evaluated`} className={classes.link}><span>Показать ещё</span></Link>
                             </div>
                         </div>
+                        <Category />
                     </section>
                 </div>
             </main>
             <Footer />
         </div>
-
+        
     )
 };
 export default HomePage;    

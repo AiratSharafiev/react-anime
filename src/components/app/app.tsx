@@ -30,9 +30,7 @@ function App() {
     return (
         <Routes>
             <Route path='/' element={<HomePage/>}/>
-            <Route path='/' 
-                element={<Layout />}>
-                
+            <Route path='/' element={<Layout />}>                
                 <Route path=':genre' element={<ListItem/>}/>                         
                 <Route path=':genre/:category' element={<CategoryItem/>}/>
                 <Route path='/id/:type/:id' element={<PageItem/>}/>

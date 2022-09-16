@@ -16,10 +16,10 @@ export const setMenuSlice = createSlice({
         iconMenu(state) {
             if (state.classNameMenu.includes('menu-open')) {
                 state.classNameMenu = 'icon-menu';
-                state.menuOpen = false;                
+                state.menuOpen = false;
             } else {
                 state.classNameMenu = 'icon-menu menu-open';
-                state.menuOpen = true;                
+                state.menuOpen = true;
             };
         },
         closeIconMenu(state) {

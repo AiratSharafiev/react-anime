@@ -2,7 +2,6 @@ import React, { FC } from 'react';
 import Header from '../header/header';
 import {Outlet} from 'react-router-dom';
 import Category from '../category/category';
-import classes from './layout.module.scss';
 import Footer from '../footer/footer';
 const Layout: FC = () => {
 
@@ -11,7 +10,7 @@ const Layout: FC = () => {
             <Header/>
             <main className='main'>
                 <div className='__container'>
-                    <section className={classes.main_block}>
+                    <section className='main_block'>
                         <Outlet />
                         <Category/>
                     </section>

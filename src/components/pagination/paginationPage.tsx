@@ -4,6 +4,7 @@ import classes from './paginationPage.module.scss';
 import { currentPageSlice } from "../../store/reducers/currentPage.slice";
 import { useAppDispatch } from "../../app/hooks";
 import { limitItem, maxPage } from "../../constants/constants";
+import classNames from 'classnames';
 
 interface IPages {
     page: number,
@@ -73,7 +74,7 @@ const Pages: FC<IPages> = ({ page, allCount, maxNumberPage }) => {
                         <span
                             key={item}
                             id={`${item}`}
-                            className={classes.pagination_item_active}>
+                            className={classNames(classes.pagination_item, classes.pagination_item_active)}>
                             {item}
                         </span>
                     )

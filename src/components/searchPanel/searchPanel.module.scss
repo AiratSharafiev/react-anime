@@ -9,6 +9,9 @@
   @media (max-width: $mobile) {
     justify-content: end;
 	}
+  @media (min-width: $mobile) {
+    position: relative;
+	}
 }
 
 .search {
@@ -72,7 +75,7 @@
   align-items: center;
 }
 
-.input_button {
+.button_base {
   font-size: rem(20);
   padding: rem(10);
   border: none;
@@ -80,18 +83,14 @@
   text-decoration: none;
   text-align: center;
   cursor: pointer;
+}
+
+.input_button {
   @media (max-width: $tablet) {
     display: none;
 	}
 }
 .button {
-  font-size: rem(20);
-  padding: rem(10);
-  text-align: center;
-  border: none;
-  color: $mainWhiteColor;
-  text-decoration: none;
-  cursor: pointer;
   @media (min-width: $tablet) {
     display: none;
 	}

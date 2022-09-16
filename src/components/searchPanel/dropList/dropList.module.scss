@@ -11,7 +11,7 @@
     gap: rem(15);
     width: rem(350);
     box-shadow: 0 0 15px rgb(0 0 0 / 10%);
-    @media (max-width: $mobile) {
+    @media (max-width: $mobileSmall) {
       display: none;
     }
   }

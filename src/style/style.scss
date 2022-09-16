@@ -79,8 +79,8 @@ body {
 	flex-direction: column;
 	overflow: hidden;
 	// Сайт загружен
-	.loaded & {
-	}
+	//.loaded & {
+	//}
 	// Прижимаем footer
 	> main {
 		flex: 1 1 auto;
@@ -89,6 +89,15 @@ body {
 	> * {
 		min-width: 0;
 	}
+}
+
+.main_block {
+	display: flex;
+	justify-content: flex-start;
+	align-items: flex-start;    
+	@include adaptiveValue("width", 1170, 290);
+	@include adaptiveValue("padding-top", 50, 15);
+	@include adaptiveValue("padding-bottom", 70, 15);
 }
 
 @if ($responsiveType==1) {

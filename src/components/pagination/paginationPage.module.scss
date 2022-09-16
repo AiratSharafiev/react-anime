@@ -17,13 +17,8 @@
 
 .pagination_item_active {
     border: 1px solid $mainDarkGrayColor;
-    @include adaptiveValue("width", 35, 28);
-    @include adaptiveValue("height", 35, 28);
     color: $mainWhiteColor;
     background-color: $mainDarkGrayColor;
-    text-align: center;
-    border-radius: 50%;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;

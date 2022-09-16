@@ -64,8 +64,8 @@ const SearchPanel: FC = () => {
                         className={classes.search}
                         placeholder='Поиск...' />
                 </div>
-                <button type='submit' className={classes.input_button}><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
-                <button><FontAwesomeIcon icon={faMagnifyingGlass}  className={classes.button} onClick={openSearchInput}/></button>
+                <button type='submit' className={classNames(classes.button_base, classes.input_button)}><FontAwesomeIcon icon={faMagnifyingGlass}/></button>
+                <button><FontAwesomeIcon icon={faMagnifyingGlass}  className={classNames(classes.button_base, classes.button)} onClick={openSearchInput}/></button>
                 {activeDrop ? <DropList valueInput={valueInput} /> : ''}
             </form>
         </>
